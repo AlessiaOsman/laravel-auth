@@ -4,7 +4,7 @@
 
 @section('content')
     <header>
-        <h1 class='text-center my-2'>Progetti</h1>
+        <h1 class='text-center mb-5'>Progetti</h1>
     </header>
 
     <table class="table">
