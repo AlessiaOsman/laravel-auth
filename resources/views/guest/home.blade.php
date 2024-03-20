@@ -4,7 +4,7 @@
 
 @section('content')
 
-<header>
+<header class="">
     <h1 class='text-center mb-5'>Scopri tutti i miei pogetti</h1>
     @if ($projects->hasPages())
     {{$projects->links()}}

@@ -3,8 +3,10 @@
 @section('title', 'Projects')
 
 @section('content')
-    <header>
-        <h1 class='text-center mb-5'>Progetti</h1>
+    <header class="d-flex justify-content-between align-items-center mb-5">
+        <h1>Progetti</h1>
+        <a class="btn btn-primary" href="{{route('adminprojects.create')}}"><i
+            class="fa-solid fa-plus me-2"></i>Aggiungi progetto</a>
     </header>
 
     <table class="table">
@@ -25,7 +27,7 @@
                     <th scope="row">{{ $project->id }}</th>
                     <td>{{ $project->title }}</td>
                     <td>{{ $project->content }}</td>
-                    <td>{{ $project->created_at }}</td>
+                    <td>{{ $project->getFormattedDate('created_at')}}</td>
                     <td><a href="{{ $project->url }}">{{ $project->url }}</a></td>
                     <td>{{ $project->slug }}</td>
                     <td>
