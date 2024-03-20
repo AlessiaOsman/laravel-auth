@@ -12,28 +12,56 @@
     <div class="col-6">
         <div class="mb-3">
             <label for="title" class="form-label">Titolo del progetto</label>
-            <input type="text" class="form-control" id="title" name="title"
-                value="{{ old('title', $project->title) }}">
+            <input type="text"
+                class="form-control @error('title') is-invalid
+              @elseif (old('title', '')) is-valid 
+            @enderror"
+                id="title" name="title" value="{{ old('title', $project->title) }}">
+                @error('title')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+
+                @enderror
         </div>
     </div>
     <div class="col-6">
         <div class="mb-3">
             <label for="slug" class="form-label">Slug</label>
-            <input type="text" class="form-control" id="slug" name="slug"
+            <input type="text" class="form-control " id="slug" name="slug"
                 value="{{ old('slug', $project->slug) }}" disabled>
         </div>
     </div>
     <div class="col-12">
         <div class="mb-3">
             <label for="content" class="form-label">Descrizione</label>
-            <textarea class="form-control" id="content" name="content" rows="10">{{ old('content', $project->content) }}</textarea>
+            <textarea
+                class="form-control @error('content') is-invalid
+            @elseif (old('content', '')) is-valid 
+          @enderror"
+                id="content" name="content" rows="10">{{ old('content', $project->content) }}</textarea>
+                @error('content')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+
+                @enderror
         </div>
     </div>
     <div class="col-12">
         <div class="mb-3">
             <label for="url" class="form-label">Indirizzo http</label>
-            <input type="url" class="form-control" id="url" name="url"
-                value="{{ old('url', $project->url) }}">
+            <input type="url"
+                class="form-control @error('url') is-invalid
+            @elseif (old('url', '')) is-valid 
+          @enderror"
+                id="url" name="url" value="{{ old('url', $project->url) }}">
+                @error('url')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+
+                @enderror
         </div>
     </div>
 
