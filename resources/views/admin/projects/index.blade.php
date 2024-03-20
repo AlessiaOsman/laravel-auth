@@ -40,6 +40,7 @@
                             <button type="submit" class="btn btn-sm btn-danger "><i
                                     class="fa-solid fa-trash-can"></i></button>
                         </form>
+                        <a class="btn btn-warning btn-sm" href="{{route('adminprojects.edit', $project)}}"><i class="fa-solid fa-pencil"></i></a>
                     </div>
                     </td>
                 </tr>
