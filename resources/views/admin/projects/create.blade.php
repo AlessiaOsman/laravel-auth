@@ -10,3 +10,14 @@
 </header>
 
 @endsection
+
+@section('scripts')
+<script>
+   const titleField = getElementById('title');
+   const slugField = getElementById('slug');
+   titleField.addEventListener('blur', ()=>{
+    slugField.value = titleField.value.trim().toLowerCase().split(' ').join('-');
+   })
+</script>
+
+@endsection

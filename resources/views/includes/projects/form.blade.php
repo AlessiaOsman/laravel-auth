@@ -17,19 +17,18 @@
               @elseif (old('title', '')) is-valid 
             @enderror"
                 id="title" name="title" value="{{ old('title', $project->title) }}">
-                @error('title')
-                  <div class="invalid-feedback">
-                    {{$message}}
-                  </div>
-
-                @enderror
+            @error('title')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
         </div>
     </div>
     <div class="col-6">
         <div class="mb-3">
             <label for="slug" class="form-label">Slug</label>
-            <input type="text" class="form-control " id="slug" name="slug"
-                value="{{ old('slug', $project->slug) }}" disabled>
+            <input type="text" class="form-control " id="slug" value="{{ Str::slug(old('title', $project->title))}}"
+                disabled>
         </div>
     </div>
     <div class="col-12">
@@ -40,12 +39,11 @@
             @elseif (old('content', '')) is-valid 
           @enderror"
                 id="content" name="content" rows="10">{{ old('content', $project->content) }}</textarea>
-                @error('content')
-                  <div class="invalid-feedback">
-                    {{$message}}
-                  </div>
-
-                @enderror
+            @error('content')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
         </div>
     </div>
     <div class="col-12">
@@ -56,12 +54,11 @@
             @elseif (old('url', '')) is-valid 
           @enderror"
                 id="url" name="url" value="{{ old('url', $project->url) }}">
-                @error('url')
-                  <div class="invalid-feedback">
-                    {{$message}}
-                  </div>
-
-                @enderror
+            @error('url')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
         </div>
     </div>
 
