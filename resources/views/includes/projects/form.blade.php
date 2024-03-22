@@ -27,8 +27,8 @@
     <div class="col-6">
         <div class="mb-3">
             <label for="slug" class="form-label">Slug</label>
-            <input type="text" class="form-control " id="slug" value="{{ Str::slug(old('title', $project->title))}}"
-                disabled>
+            <input type="text" class="form-control " id="slug"
+                value="{{ Str::slug(old('title', $project->title)) }}" disabled>
         </div>
     </div>
     <div class="col-12">
@@ -59,6 +59,32 @@
                     {{ $message }}
                 </div>
             @enderror
+        </div>
+    </div>
+    <div class="col-11">
+        <div class="mb-3">
+            <label for="image" class="form-label">Immagine</label>
+            <input type="url" class="form-control " name='image' id="image"
+                value="{{ old('image', $project->image) }}">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Immagine</label>
+            <input type="file" class="form-control " name='image' id="image"
+                value="{{ old('image', $project->image) }}">
+        </div>
+        @error('image')
+            <div class="invalid-feedback">
+                {{ $message }}
+                </div>   
+                @else
+                <div class="form-text">
+                    Carica un file immagine</div>         
+        @enderror
+    </div>
+    <div class="col-1">
+        <div class="mb-3">
+            <img src="{{ old('image', $project->image ?? 'https://marcolanci.it/boolean/assets/placeholder.png') }}"
+                class="img-fluid" alt="immagine post" id='preview'>
         </div>
     </div>
 

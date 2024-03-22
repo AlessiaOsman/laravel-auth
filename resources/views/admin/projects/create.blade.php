@@ -19,5 +19,5 @@
     slugField.value = titleField.value.trim().toLowerCase().split(' ').join('-');
    })
 </script>
-
+@vite('resources/js/image_preview.js')
 @endsection
