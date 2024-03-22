@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
 
 class Project extends Model
 {
@@ -17,5 +18,9 @@ class Project extends Model
     public function getFormattedDate($column, $format='d-m-Y'){
         
         return Carbon::create($this->$column)->format($format);
+    }
+
+    public function contentTruncate($column){
+        return Str::limit($this->$column, 20);
     }
 }

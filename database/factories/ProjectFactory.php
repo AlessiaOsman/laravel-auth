@@ -22,7 +22,8 @@ class ProjectFactory extends Factory
             'title'=> $title,
             'content'=>fake()->paragraph(15, true),
             'url'=>fake()->url(),
-            'slug'=>Str::slug($title)
+            'slug'=>Str::slug($title),
+            'image'=>fake()->imageUrl(250,250,true)
         ];
     }
 }

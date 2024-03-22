@@ -26,7 +26,7 @@
                 <tr>
                     <th scope="row">{{ $project->id }}</th>
                     <td>{{ $project->title }}</td>
-                    <td>{{ $project->content }}</td>
+                    <td>{{ $project->contentTruncate('content') }}</td>
                     <td>{{ $project->getFormattedDate('created_at')}}</td>
                     <td><a href="{{ $project->url }}">{{ $project->url }}</a></td>
                     <td>{{ $project->slug }}</td>
