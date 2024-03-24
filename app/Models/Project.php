@@ -13,7 +13,7 @@ class Project extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['title', 'content', 'url', 'image'];
+    protected $fillable = ['title', 'content', 'url'];
 
     public function getFormattedDate($column, $format='d-m-Y'){
         
@@ -22,5 +22,9 @@ class Project extends Model
 
     public function contentTruncate($column){
         return Str::limit($this->$column, 20);
+    }
+
+    public function printImage(){
+        return asset('storage/'. $this->image);
     }
 }

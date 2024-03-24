@@ -1,8 +1,8 @@
 @if ($project->exists)
-    <form action="{{ route('adminprojects.update', $project) }}" method="POST">
+    <form action="{{ route('adminprojects.update', $project) }}" method="POST" enctype="multipart/form-data">
         @method('PUT')
     @else
-        <form action="{{ route('adminprojects.store') }}" method="POST">
+        <form action="{{ route('adminprojects.store') }}" method="POST" enctype="multipart/form-data">
 @endif
 
 
@@ -62,15 +62,18 @@
         </div>
     </div>
     <div class="col-11">
+       
         <div class="mb-3">
             <label for="image" class="form-label">Immagine</label>
-            <input type="url" class="form-control " name='image' id="image"
-                value="{{ old('image', $project->image) }}">
-        </div>
-        <div class="mb-3">
-            <label for="image" class="form-label">Immagine</label>
-            <input type="file" class="form-control " name='image' id="image"
-                value="{{ old('image', $project->image) }}">
+
+
+            <div @class(['form-control', 'd-none' => !$project->image]) id='previous-image-field'>
+                <button class="btn btn-outline-secondary" type="button" id="change-image-button">Cambia Immagine</button>
+                <input type="text" class="form-control" value="{{ old('image', $project->image) }}" disabled>
+              </div>
+
+            <input type="file" class="form-control @if($project->image) d-none @endif @error('image') is-invalid @elseif (old('image', '')) is-valid @enderror" 
+            name='image' id="image" >
         </div>
         @error('image')
             <div class="invalid-feedback">
@@ -83,8 +86,10 @@
     </div>
     <div class="col-1">
         <div class="mb-3">
-            <img src="{{ old('image', $project->image ?? 'https://marcolanci.it/boolean/assets/placeholder.png') }}"
-                class="img-fluid" alt="immagine post" id='preview'>
+            <img src="{{ old('image', $project->image) 
+            ?  $project->printImage()
+            : 'https://marcolanci.it/boolean/assets/placeholder.png' }}"
+                class="img-fluid" alt="{{$project->image ? $project->title : 'preview'}}" id='preview'>
         </div>
     </div>
 

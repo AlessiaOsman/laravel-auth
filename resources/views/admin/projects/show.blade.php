@@ -7,7 +7,7 @@
     <div class="card mb-3">
         <div class="row g-0">
         <div class="col-md-4">
-        <img src="{{ $project->image }}" class="img-fluid rounded-start" alt="{{ $project->title }}" style="width: 100%;">
+        <img src="{{ $project->printImage() }}" class="img-fluid rounded-start" alt="{{ $project->title }}" style="width: 100%;">
         </div>
         <div class="col-md-8">
         <div class="card-body d-flex flex-column justify-content-between" style="height: 100%;">
